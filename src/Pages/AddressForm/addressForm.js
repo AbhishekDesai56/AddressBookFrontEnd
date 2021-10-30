@@ -3,10 +3,26 @@ import "./addressForm.scss";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import { withFormik } from "formik";
 import * as Yup from "yup";
+import FormikControl from "../../Components/FormikControls";
 
 const AddressForm = (props) => {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
+
+  const cityOptions = [
+    { key: "Select City", value: "" },
+    { key: "Mumbai", value: "Mumbai" },
+    { key: "Pune", value: "Pune" },
+    { key: "New Delhi", value: "New Delhi" },
+    { key: "Firozabad", value: "Firozabad" },
+  ];
+
+  const pinCodeOptions = [
+    { key: "Select PinCode", value: "" },
+    { key: "400001", value: "400001" },
+    { key: "500001", value: "500001" },
+    { key: "500002", value: "500002" },
+  ];
   return (
     <form class="form" onSubmit={handleSubmit}>
       <div class="form-head">
@@ -21,36 +37,32 @@ const AddressForm = (props) => {
       </div>
       <div class="input-name-content">
         <div class="a">
-          <label for="name" class="label text">
-            First Name
-          </label>
-          <input
+          <FormikControl
+            control="input"
             type="text"
-            id="name"
+            label="First Name"
+            name="firstName"
+            placeholder="Your First Name.."
+            className="input"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.firstName}
-            name="firstName"
-            className="input"
-            placeholder="Your First Name.."
           />
           {errors.firstName && touched.firstName && (
             <div id="feedback">{errors.firstName}</div>
           )}
         </div>
         <div class="a">
-          <label for="name" class="label text">
-            Last Name
-          </label>
-          <input
+          <FormikControl
+            control="input"
             type="text"
-            id="name"
+            label="Last Name"
+            name="lastName"
+            placeholder="Your Last Name.."
+            className="input"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.lastName}
-            name="lastName"
-            className="input"
-            placeholder="Your Last Name.."
           />
           {errors.lastName && touched.lastName && (
             <div id="feedback">{errors.lastName}</div>
@@ -58,74 +70,58 @@ const AddressForm = (props) => {
         </div>
       </div>
       <div class="row-content">
-        <label for="address" class="label text">
-          Address
-        </label>
-        <textarea
+        <FormikControl
+          control="textarea"
+          label="Address"
           name="address"
-          id="address"
+          placeholder="Address"
+          className="input"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.address}
-          className="input"
-          placeholder="Address"
-        ></textarea>
+        />
         {errors.address && touched.address && (
           <div id="feedback">{errors.address}</div>
         )}
       </div>
       <div class="row-content">
-        <label for="City" class="label text">
-          City
-        </label>
-        <select
+        <FormikControl
+          control="select"
+          label="City"
           name="city"
-          id="city"
+          options={cityOptions}
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.city}
-        >
-          <option value="">Select City</option>
-          <option value="Mumbai">Mumbai</option>
-          <option value="Pune">Pune</option>
-          <option value="New Delhi">New Delhi</option>
-          <option value="Firozabad">Firozabad</option>
-        </select>
+        />
         {errors.city && touched.city && <div id="feedback">{errors.city}</div>}
       </div>
       <div class="row-content">
-        <label for="ZipCode" class="label text">
-          PinCode
-        </label>
-        <select
+        <FormikControl
+          control="select"
+          label="PinCode"
           name="pinCode"
-          id="pinCode"
+          options={pinCodeOptions}
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.pinCode}
-        >
-          <option value="">Select PinCode</option>
-          <option value="400001">400001</option>
-          <option value="500001">500001</option>
-          <option value="500002">500002</option>
-        </select>
+        />
         {errors.pinCode && touched.pinCode && (
           <div id="feedback">{errors.pinCode}</div>
         )}
       </div>
 
       <div class="row-content">
-        <label for="phoneNumber" class="label text">
-          Phone Number
-        </label>
-        <input
+        <FormikControl
+          control="input"
+          type="text"
+          label="Phone Number"
           name="phoneNumber"
-          id="phoneNumber"
-          class="input"
+          placeholder="Phone Number"
+          className="input"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.phoneNumber}
-          placeholder="Phone Number"
         />
         {errors.phoneNumber && touched.phoneNumber && (
           <div id="feedback">{errors.phoneNumber}</div>
