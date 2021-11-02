@@ -4,7 +4,7 @@ import "../Pages/AddressForm/addressForm.scss";
 const Select = (props) => {
   const { label, name, options, ...rest } = props;
   return (
-    <div className="form-control">
+    <>
       <label for={name} class="label text">
         {label}
       </label>
@@ -17,7 +17,7 @@ const Select = (props) => {
           );
         })}
       </select>
-    </div>
+    </>
   );
 };
 
