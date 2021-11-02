@@ -2,6 +2,7 @@ import React from "react";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../Components/Input";
+import "./login.scss";
 const login = (props) => {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
@@ -25,7 +26,7 @@ const login = (props) => {
           value={values.email}
         />
         {errors.email && touched.email && (
-          <div id="feedback">{errors.email}</div>
+          <div id="error-output">{errors.email}</div>
         )}
       </div>
       <div class="row-content">
@@ -40,7 +41,7 @@ const login = (props) => {
           value={values.password}
         />
         {errors.password && touched.password && (
-          <div id="feedback">{errors.password}</div>
+          <div id="error-output">{errors.password}</div>
         )}
       </div>
       <div class="button-content">
