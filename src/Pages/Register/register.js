@@ -2,6 +2,7 @@ import React from "react";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../Components/Input";
+import "./register.scss";
 
 const register = (props) => {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
@@ -11,42 +12,40 @@ const register = (props) => {
     <form class="form" onSubmit={handleSubmit}>
       <div class="form-head">
         <div class="head-title">
-          <span>Login Form</span>
+          <span>Register Form</span>
         </div>
       </div>
-      <div class="input-name-content">
-        <div class="a">
-          <Input
-            control="input"
-            type="text"
-            label="First Name"
-            name="firstName"
-            placeholder="Your First Name.."
-            className="input"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.firstName}
-          />
-          {errors.firstName && touched.firstName && (
-            <div id="feedback">{errors.firstName}</div>
-          )}
-        </div>
-        <div class="a">
-          <Input
-            control="input"
-            type="text"
-            label="Last Name"
-            name="lastName"
-            placeholder="Your Last Name.."
-            className="input"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.lastName}
-          />
-          {errors.lastName && touched.lastName && (
-            <div id="feedback">{errors.lastName}</div>
-          )}
-        </div>
+      <div class="row-content">
+        <Input
+          control="input"
+          type="text"
+          label="First Name"
+          name="firstName"
+          placeholder="Your First Name.."
+          className="input"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.firstName}
+        />
+        {errors.firstName && touched.firstName && (
+          <div id="error-output">{errors.firstName}</div>
+        )}
+      </div>
+      <div class="row-content">
+        <Input
+          control="input"
+          type="text"
+          label="Last Name"
+          name="lastName"
+          placeholder="Your Last Name.."
+          className="input"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.lastName}
+        />
+        {errors.lastName && touched.lastName && (
+          <div id="error-output">{errors.lastName}</div>
+        )}
       </div>
       <div class="row-content">
         <Input
@@ -60,7 +59,7 @@ const register = (props) => {
           value={values.email}
         />
         {errors.email && touched.email && (
-          <div id="feedback">{errors.email}</div>
+          <div id="error-output">{errors.email}</div>
         )}
       </div>
       <div class="row-content">
@@ -75,11 +74,11 @@ const register = (props) => {
           value={values.password}
         />
         {errors.password && touched.password && (
-          <div id="feedback">{errors.password}</div>
+          <div id="error-output">{errors.password}</div>
         )}
       </div>
       <div class="button-content">
-        <div class="submit-reset">
+        <div class="submit">
           <button type="submit" class="button submitButton" id="submitButton">
             Submit
           </button>
