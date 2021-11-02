@@ -49,9 +49,10 @@ const AddressForm = (props) => {
           value={values.firstName}
         />
         {errors.firstName && touched.firstName && (
-          <div id="feedback">{errors.firstName}</div>
+          <div id="error-output">{errors.firstName}</div>
         )}
       </div>
+
       <div class="row-content">
         <Input
           control="input"
@@ -65,7 +66,7 @@ const AddressForm = (props) => {
           value={values.lastName}
         />
         {errors.lastName && touched.lastName && (
-          <div id="feedback">{errors.lastName}</div>
+          <div id="error-output">{errors.lastName}</div>
         )}
       </div>
       <div class="row-content">
@@ -80,7 +81,7 @@ const AddressForm = (props) => {
           value={values.address}
         />
         {errors.address && touched.address && (
-          <div id="feedback">{errors.address}</div>
+          <div id="error-output">{errors.address}</div>
         )}
       </div>
       <div class="select-content">
@@ -95,7 +96,7 @@ const AddressForm = (props) => {
             value={values.city}
           />
           {errors.city && touched.city && (
-            <div id="feedback">{errors.city}</div>
+            <div id="error-output">{errors.city}</div>
           )}
         </div>
         <div>
@@ -109,7 +110,7 @@ const AddressForm = (props) => {
             value={values.pinCode}
           />
           {errors.pinCode && touched.pinCode && (
-            <div id="feedback">{errors.pinCode}</div>
+            <div id="error-output">{errors.pinCode}</div>
           )}
         </div>
         <div></div>
@@ -128,7 +129,7 @@ const AddressForm = (props) => {
           value={values.phoneNumber}
         />
         {errors.phoneNumber && touched.phoneNumber && (
-          <div id="feedback">{errors.phoneNumber}</div>
+          <div id="error-output">{errors.phoneNumber}</div>
         )}
       </div>
       <div class="button-content">
