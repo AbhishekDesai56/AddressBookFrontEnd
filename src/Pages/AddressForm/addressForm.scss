@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 body {
   margin: 0;
   height: 100%;
@@ -90,6 +91,8 @@ body {
 .cancel-icon {
   margin-left: auto;
   align-items: center;
+  border-radius: 12px;
+  background-color: #ffffff;
 }
 
 .row-content {
@@ -103,13 +106,13 @@ body {
 
 .label {
   min-width: 140px;
+  font-family: Roboto;
+  text-align: left;
 }
 
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
-  text-align: left;
-  font-weight: bold;
 }
 
 .text {
@@ -140,26 +143,6 @@ select {
   resize: horizontal;
 }
 
-.input-name-content {
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  font: normal normal normal 16px Roboto;
-  letter-spacing: 0px;
-  color: #42515f;
-  background-color: transparent;
-}
-
-.a {
-  justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 60px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  letter-spacing: 0px;
-  color: #42515f;
-  background-color: transparent;
-  border-radius: 3px;
-}
 .select-content {
   display: flex;
   flex-wrap: wrap;
@@ -212,10 +195,9 @@ select {
   background-color: #ccc2c2;
 }
 
-#feedback {
-  // margin-left: 10px;
-  font-size: 16px;
+error-output {
+  margin-left: 10px;
+  font-size: 12px;
   font-style: italic;
   color: red;
-  text-align: left;
 }

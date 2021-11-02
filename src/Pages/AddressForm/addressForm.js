@@ -32,43 +32,41 @@ const AddressForm = (props) => {
         </div>
         <div class="cancel-icon">
           <a href="../pages/home.html">
-            <img src={CloseSharpIcon} alt="Menu" id="headings2_menu" />
+            <CloseSharpIcon />
           </a>
         </div>
       </div>
-      <div class="input-name-content">
-        <div class="a">
-          <Input
-            control="input"
-            type="text"
-            label="First Name"
-            name="firstName"
-            placeholder="Your First Name.."
-            className="input"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.firstName}
-          />
-          {errors.firstName && touched.firstName && (
-            <div id="feedback">{errors.firstName}</div>
-          )}
-        </div>
-        <div class="a">
-          <Input
-            control="input"
-            type="text"
-            label="Last Name"
-            name="lastName"
-            placeholder="Your Last Name.."
-            className="input"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.lastName}
-          />
-          {errors.lastName && touched.lastName && (
-            <div id="feedback">{errors.lastName}</div>
-          )}
-        </div>
+      <div class="row-content">
+        <Input
+          control="input"
+          type="text"
+          label="First Name"
+          name="firstName"
+          placeholder="Your First Name.."
+          className="input"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.firstName}
+        />
+        {errors.firstName && touched.firstName && (
+          <div id="feedback">{errors.firstName}</div>
+        )}
+      </div>
+      <div class="row-content">
+        <Input
+          control="input"
+          type="text"
+          label="Last Name"
+          name="lastName"
+          placeholder="Your Last Name.."
+          className="input"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.lastName}
+        />
+        {errors.lastName && touched.lastName && (
+          <div id="feedback">{errors.lastName}</div>
+        )}
       </div>
       <div class="row-content">
         <Textarea
@@ -85,31 +83,36 @@ const AddressForm = (props) => {
           <div id="feedback">{errors.address}</div>
         )}
       </div>
-      <div class="row-content">
-        <Select
-          control="select"
-          label="City"
-          name="city"
-          options={cityOptions}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.city}
-        />
-        {errors.city && touched.city && <div id="feedback">{errors.city}</div>}
-      </div>
-      <div class="row-content">
-        <Select
-          control="select"
-          label="PinCode"
-          name="pinCode"
-          options={pinCodeOptions}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.pinCode}
-        />
-        {errors.pinCode && touched.pinCode && (
-          <div id="feedback">{errors.pinCode}</div>
-        )}
+      <div class="select-content">
+        <div>
+          <Select
+            control="select"
+            label="City"
+            name="city"
+            options={cityOptions}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.city}
+          />
+          {errors.city && touched.city && (
+            <div id="feedback">{errors.city}</div>
+          )}
+        </div>
+        <div>
+          <Select
+            control="select"
+            label="PinCode"
+            name="pinCode"
+            options={pinCodeOptions}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.pinCode}
+          />
+          {errors.pinCode && touched.pinCode && (
+            <div id="feedback">{errors.pinCode}</div>
+          )}
+        </div>
+        <div></div>
       </div>
 
       <div class="row-content">
