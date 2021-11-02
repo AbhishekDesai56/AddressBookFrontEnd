@@ -3,8 +3,9 @@ import "./addressForm.scss";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import { withFormik } from "formik";
 import * as Yup from "yup";
-import FormikControl from "../../Components/FormikControls";
-
+import Input from "../../Components/Input";
+import Textarea from "../../Components/TextArea";
+import Select from "../../Components/Select";
 const AddressForm = (props) => {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
@@ -37,7 +38,7 @@ const AddressForm = (props) => {
       </div>
       <div class="input-name-content">
         <div class="a">
-          <FormikControl
+          <Input
             control="input"
             type="text"
             label="First Name"
@@ -53,7 +54,7 @@ const AddressForm = (props) => {
           )}
         </div>
         <div class="a">
-          <FormikControl
+          <Input
             control="input"
             type="text"
             label="Last Name"
@@ -70,7 +71,7 @@ const AddressForm = (props) => {
         </div>
       </div>
       <div class="row-content">
-        <FormikControl
+        <Textarea
           control="textarea"
           label="Address"
           name="address"
@@ -85,7 +86,7 @@ const AddressForm = (props) => {
         )}
       </div>
       <div class="row-content">
-        <FormikControl
+        <Select
           control="select"
           label="City"
           name="city"
@@ -97,7 +98,7 @@ const AddressForm = (props) => {
         {errors.city && touched.city && <div id="feedback">{errors.city}</div>}
       </div>
       <div class="row-content">
-        <FormikControl
+        <Select
           control="select"
           label="PinCode"
           name="pinCode"
@@ -112,7 +113,7 @@ const AddressForm = (props) => {
       </div>
 
       <div class="row-content">
-        <FormikControl
+        <Input
           control="input"
           type="text"
           label="Phone Number"
