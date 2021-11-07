@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../Components/Input";
 import "./login.scss";
 const Login = (props) => {
-  const [count, setCount] = useState(0);
-
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
 
