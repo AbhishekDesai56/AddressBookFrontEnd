@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../Components/Input";
 import "./login.scss";
-const login = (props) => {
+const Login = (props) => {
+  const [count, setCount] = useState(0);
+
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
 
@@ -19,6 +21,8 @@ const login = (props) => {
           type="email"
           label="Email"
           name="email"
+          id="email"
+          data-testid="email-input"
           placeholder="Enter your Email"
           className="input"
           onChange={handleChange}
@@ -34,6 +38,7 @@ const login = (props) => {
           type="password"
           label="Password"
           name="password"
+          id="password"
           placeholder="Enter your password"
           className="input"
           onChange={handleChange}
@@ -46,7 +51,12 @@ const login = (props) => {
       </div>
       <div class="button-content">
         <div class="submit-reset">
-          <button type="submit" class="button submitButton" id="submitButton">
+          <button
+            id="submitbutton"
+            type="submit"
+            name="submit"
+            class="button submitButton"
+          >
             Submit
           </button>
         </div>
@@ -77,6 +87,6 @@ const MyEnhancedLogin = withFormik({
   },
 
   displayName: "BasicForm",
-})(login);
+})(Login);
 
 export default MyEnhancedLogin;

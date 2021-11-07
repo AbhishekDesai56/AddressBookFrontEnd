@@ -43,6 +43,7 @@ const AddressForm = (props) => {
           label="First Name"
           name="firstName"
           placeholder="Your First Name.."
+          id="firstName"
           className="input"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -61,6 +62,7 @@ const AddressForm = (props) => {
           name="lastName"
           placeholder="Your Last Name.."
           className="input"
+          id="lastName"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.lastName}
@@ -76,6 +78,7 @@ const AddressForm = (props) => {
           name="address"
           placeholder="Address"
           className="input"
+          id="address"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.address}
@@ -91,6 +94,7 @@ const AddressForm = (props) => {
             label="City"
             name="city"
             options={cityOptions}
+            id="city"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.city}
@@ -105,6 +109,7 @@ const AddressForm = (props) => {
             label="PinCode"
             name="pinCode"
             options={pinCodeOptions}
+            id="pinCode"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.pinCode}
@@ -124,6 +129,7 @@ const AddressForm = (props) => {
           name="phoneNumber"
           placeholder="Phone Number"
           className="input"
+          id="phoneNumber"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.phoneNumber}
@@ -134,10 +140,10 @@ const AddressForm = (props) => {
       </div>
       <div class="button-content">
         <div class="submit-reset">
-          <button type="submit" class="button submitButton" id="submitButton">
+          <button id="submitButton" type="submit" class="button submitButton">
             Add
           </button>
-          <button type="reset" class="button resetButton" id="resetButton">
+          <button id="resetButton" type="reset" class="button resetButton">
             Reset
           </button>
         </div>

@@ -23,6 +23,7 @@ const register = (props) => {
           name="firstName"
           placeholder="Your First Name.."
           className="input"
+          id="firstName"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.firstName}
@@ -39,6 +40,7 @@ const register = (props) => {
           name="lastName"
           placeholder="Your Last Name.."
           className="input"
+          id="lastName"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.lastName}
@@ -54,6 +56,7 @@ const register = (props) => {
           name="email"
           placeholder="Enter your Email"
           className="input"
+          id="email"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.email}
@@ -69,6 +72,7 @@ const register = (props) => {
           name="password"
           placeholder="Enter your password"
           className="input"
+          id="password"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.password}
@@ -79,7 +83,7 @@ const register = (props) => {
       </div>
       <div class="button-content">
         <div class="submit">
-          <button type="submit" class="button submitButton" id="submitButton">
+          <button id="submitbutton" type="submit" class="button submitButton">
             Submit
           </button>
         </div>
