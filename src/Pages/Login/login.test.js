@@ -1,9 +1,6 @@
 import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { getDefaultNormalizer, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import MyEnhancedLogin from "./login";
-import sinon from "sinon";
 
 Enzyme.configure({ adapter: new Adapter() });
 
