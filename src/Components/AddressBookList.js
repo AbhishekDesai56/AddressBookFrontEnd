@@ -13,6 +13,7 @@ const AddressBookList = () => {
   const getAllListOfAddressBook = async () => {
     await AddressBookService.getAllAddressBookData()
       .then((response) => {
+        console.log(response.data.data);
         setAddressList(response.data.data);
       })
       .catch((error) => {
@@ -21,7 +22,7 @@ const AddressBookList = () => {
   };
 
   const handleDelete = (id) => {
-    AddressBookService.deleteAddressBookById(id)
+    AddressBookService.deleteAddressBookId(id)
       .then((response) => {
         window.location.reload();
       })
@@ -51,7 +52,14 @@ const AddressBookList = () => {
               <a href={`/details/${address._id}`}>
                 <EditIcon />
               </a>
-              <DeleteIcon color="secondary" />
+              <button
+                id="deleteButton"
+                onClick={() => {
+                  handleDelete(address._id);
+                }}
+              >
+                <DeleteIcon color="secondary" />
+              </button>
             </td>
           </tr>
         ))}
