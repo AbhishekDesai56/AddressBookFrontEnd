@@ -1,0 +1,12 @@
+.addressDetails {
+  white-space: nowrap;
+  max-width: 200px;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#deleteButton {
+  border: none;
+  outline: none;
+}
