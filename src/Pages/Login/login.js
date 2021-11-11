@@ -9,36 +9,38 @@ import Input from "../../Components/Input";
 import Password from "../../Components/Password";
 const Login = () => {
   const history = useHistory();
+  const initialValues = {
+    email: "",
+    password: "",
+  };
 
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email address").required("Required"),
+    password: Yup.string().required("Enter a password").required("Required"),
+  });
+
+  const onSubmit = (values) => {
+    let loginData = {
+      email: values.email,
+      password: values.password,
+    };
+    AddressBookService.login(loginData)
+      .then((response) => {
+        sessionStorage.setItem("token", response.data.token);
+        setTimeout(() => {
+          history.push("/dashboard");
+        }, 2000);
+        toast.success(response.data.message);
+      })
+      .catch(() => {
+        toast.error("Invalid Credintials");
+      });
+  };
   return (
     <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
-        password: Yup.string()
-          .required("Enter a password")
-          .required("Required"),
-      })}
-      onSubmit={(values) => {
-        let loginData = {
-          email: values.email,
-          password: values.password,
-        };
-        AddressBookService.login(loginData)
-          .then((response) => {
-            sessionStorage.setItem("token", response.data.token);
-            setTimeout(() => {
-              history.push("/dashboard");
-            }, 2000);
-            toast.success(response.data.message);
-          })
-          .catch(() => {
-            toast.error("Invalid Credintials");
-          });
-      }}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
     >
       <div class="form-content">
         <Form className="form">
