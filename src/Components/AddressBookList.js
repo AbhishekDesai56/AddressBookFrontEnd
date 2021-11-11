@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddressBookService from "../Services/AddressBookService";
-
+import "./AddressBookList.scss";
 const AddressBookList = () => {
   const [addressList, setAddressList] = useState([]);
 
@@ -11,9 +11,8 @@ const AddressBookList = () => {
   }, []);
 
   const getAllListOfAddressBook = async () => {
-    await AddressBookService.getAddressBookLists()
+    await AddressBookService.getAllAddressBookData()
       .then((response) => {
-        console.log(response.data.data[0].department);
         setAddressList(response.data.data);
       })
       .catch((error) => {
@@ -35,21 +34,23 @@ const AddressBookList = () => {
       <table id="table-display" class="table">
         <th>Fullname</th>
         <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
         <th>Phone Number</th>
+        <th>City</th>
+        <th>Pin Code</th>
+        <th>Address</th>
         <th></th>
         {addressList.map((address) => (
           <tr>
-            <td>${address._name}</td>
-            <td>${address._address}</td>
-            <td>${address._city}</td>
-            <td>${address._state}</td>
-            <td>${address._zipCode}</td>
-            <td>${address._phoneNumber}</td>
+            <td>{address.firstName}</td>
+            <td>{address.lastName}</td>
+            <td>{address.phoneNumber}</td>
+            <td>{address.city}</td>
+            <td>{address.pinCode}</td>
+            <td className="addressDetails">{address.address}</td>
             <td>
-              <EditIcon />
+              <a href={`/details/${address._id}`}>
+                <EditIcon />
+              </a>
               <DeleteIcon color="secondary" />
             </td>
           </tr>

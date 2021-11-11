@@ -1,90 +1,85 @@
 import React from "react";
-import { withFormik } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import AddressBookService from "../../Services/AddressBookService";
+import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input";
-import "./login.scss";
-const Login = (props) => {
-  const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
-    props;
+import Password from "../../Components/Password";
+const Login = () => {
+  const history = useHistory();
 
   return (
-    <form class="form" onSubmit={handleSubmit}>
-      <div class="form-head">
-        <div class="head-title">
-          <span>Login Form</span>
-        </div>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      validationSchema={Yup.object({
+        email: Yup.string().email("Invalid email address").required("Required"),
+        password: Yup.string()
+          .required("Enter a password")
+          .required("Required"),
+      })}
+      onSubmit={(values) => {
+        let loginData = {
+          email: values.email,
+          password: values.password,
+        };
+        AddressBookService.login(loginData)
+          .then((response) => {
+            sessionStorage.setItem("token", response.data.token);
+            setTimeout(() => {
+              history.push("/dashboard");
+            }, 2000);
+            toast.success(response.data.message);
+          })
+          .catch(() => {
+            toast.error("Invalid Credintials");
+          });
+      }}
+    >
+      <div class="form-content">
+        <Form className="form">
+          <div className="form-head">
+            <div className="head-title">
+              <span>SignUp Pages</span>
+            </div>
+            <div className="cancel-icon"></div>
+          </div>
+          <div className="row-content">
+            <Input
+              label="Email"
+              name="email"
+              placeholder="Your Email"
+              className="input"
+            />
+          </div>
+          <div className="row-content">
+            <Password
+              label="Password"
+              name="password"
+              placeholder="Your Password"
+              className="input"
+            />
+          </div>
+          <div className="button-content">
+            <div className="submit-reset">
+              <button
+                id="submitButton"
+                type="submit"
+                className="button submitButton"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+          <ToastContainer />
+        </Form>
       </div>
-      <div class="row-content">
-        <Input
-          type="email"
-          label="Email"
-          name="email"
-          id="email"
-          data-testid="email-input"
-          placeholder="Enter your Email"
-          className="input"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.email}
-        />
-        {errors.email && touched.email && (
-          <div id="error-output">{errors.email}</div>
-        )}
-      </div>
-      <div class="row-content">
-        <Input
-          type="password"
-          label="Password"
-          name="password"
-          id="password"
-          placeholder="Enter your password"
-          className="input"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.password}
-        />
-        {errors.password && touched.password && (
-          <div id="error-output">{errors.password}</div>
-        )}
-      </div>
-      <div class="button-content">
-        <div class="submit-reset">
-          <button
-            id="submitbutton"
-            type="submit"
-            name="submit"
-            class="button submitButton"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    </form>
+    </Formik>
   );
 };
 
-const MyEnhancedLogin = withFormik({
-  mapPropsToValues: () => ({
-    email: "",
-    password: "",
-  }),
-
-  validationSchema: Yup.object().shape({
-    email: Yup.string()
-      .email("Must be a valid email")
-      .max(255)
-      .required("Email is required"),
-    password: Yup.string().max(255).required("Password is required"),
-  }),
-
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
-  },
-
-  displayName: "BasicForm",
-})(Login);
-
-export default MyEnhancedLogin;
+export default Login;
