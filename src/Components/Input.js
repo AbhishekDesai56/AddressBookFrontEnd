@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorMessage } from "formik";
+import { ErrorMessage, Field } from "formik";
 const Input = (props) => {
   const { label, name, placeholder, ...rest } = props;
   return (
@@ -7,7 +7,7 @@ const Input = (props) => {
       <label htmlFor={name} class="label text">
         {label}
       </label>
-      <input type="text" name={name} placeholder={placeholder} {...rest} />
+      <Field type="text" name={name} placeholder={placeholder} {...rest} />
       <span id="error-output">
         <ErrorMessage name={name} />
       </span>
