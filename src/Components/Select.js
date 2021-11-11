@@ -1,5 +1,6 @@
 import React from "react";
 import "../Pages/AddressForm/addressForm.scss";
+import { ErrorMessage } from "formik";
 
 const Select = (props) => {
   const { label, name, options, ...rest } = props;
@@ -17,6 +18,9 @@ const Select = (props) => {
           );
         })}
       </select>
+      <span id="error-output">
+        <ErrorMessage name={name} />
+      </span>
     </>
   );
 };
