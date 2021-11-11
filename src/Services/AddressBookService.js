@@ -1,4 +1,4 @@
-import http from "../http-common.js";
+import http from "./http-common.js";
 let token = sessionStorage.getItem("token");
 
 let header = {
