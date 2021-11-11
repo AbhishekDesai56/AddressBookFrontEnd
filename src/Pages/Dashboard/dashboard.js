@@ -6,10 +6,11 @@ const Dashboard = (props) => {
     <div class="main-content">
       <div class="header-content">
         <div class="person-detail-text">Person Details</div>
-        <a href="../pages/address_form.html" class="add-button">
+        <a href="/details" class="add-button">
           Add Person
         </a>
       </div>
+
       <AddressBookList />
     </div>
   );
