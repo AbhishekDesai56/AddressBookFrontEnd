@@ -9,10 +9,18 @@ body {
   box-sizing: border-box;
 }
 
+.form-content {
+  min-height: calc(100% - 80px);
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid;
+}
+
 .form {
-  width: 40%;
+  width: 65%;
   padding: 44px 68px;
-  border-radius: 5%;
   background: #ffffff;
   border: 1px solid #f5f5f5;
   opacity: 1;
@@ -21,7 +29,7 @@ body {
 .form-head {
   display: flex;
   flex-direction: column;
-  padding: 10px 68px;
+  padding: 75px 68px;
   font: normal normal bold 24px/37px Roboto;
   letter-spacing: 0px;
   background: #008cff 0% 0% no-repeat padding-box;
@@ -39,7 +47,15 @@ body {
 .head-title {
   flex: 0 1 auto;
   text-align: center;
-  font-family: Roboto;
+  //position: absolute;
+  left: 40%;
+}
+
+.cancel-icon {
+  margin-left: auto;
+  align-items: center;
+  border-radius: 40%;
+  background-color: white;
 }
 
 .row-content {
@@ -48,12 +64,11 @@ body {
   margin-bottom: 10px;
   padding-left: 50px;
   padding-right: 50px;
+  /* align-items: center; */
 }
 
 .label {
   min-width: 140px;
-  font-family: Roboto;
-  text-align: left;
 }
 
 label {
@@ -76,6 +91,54 @@ label {
   resize: vertical;
 }
 
+select {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: normal normal normal 16px Roboto;
+  letter-spacing: 0px;
+  color: #42515f;
+  background-color: transparent;
+  resize: horizontal;
+}
+
+.select-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-right: 60px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  letter-spacing: 0px;
+  color: #42515f;
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.submit-reset {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.button-content {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 60px;
+}
+
+.submitButton,
+.resetButton {
+  margin: 10px;
+}
+
 .button {
   font-size: 20px;
   font-family: Roboto;
@@ -84,9 +147,9 @@ label {
   opacity: 1;
   background: transparent;
   border: none;
-  font-weight: 300;
+  font-weight: 400;
   min-width: 140px;
-  padding: 5px 5px;
+  padding: 7px 7px;
   border: 1px solid #7c7b7b;
   cursor: pointer;
   border-radius: 4px;
@@ -96,7 +159,7 @@ label {
 #error-output {
   text-align: left;
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 16px;
   font-style: italic;
   color: red !important;
 }

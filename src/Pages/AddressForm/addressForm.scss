@@ -9,6 +9,15 @@ body {
   box-sizing: border-box;
 }
 
+.form-content {
+  min-height: calc(100% - 80px);
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid;
+}
+
 .form {
   width: 65%;
   padding: 44px 68px;
@@ -20,7 +29,7 @@ body {
 .form-head {
   display: flex;
   flex-direction: column;
-  padding: 44px 68px;
+  padding: 11px 68px;
   font: normal normal bold 24px/37px Roboto;
   letter-spacing: 0px;
   background: #008cff 0% 0% no-repeat padding-box;
@@ -40,14 +49,13 @@ body {
   text-align: center;
   position: absolute;
   left: 40%;
-  font-family: Roboto;
 }
 
 .cancel-icon {
   margin-left: auto;
   align-items: center;
-  border-radius: 11px;
-  background-color: #ffffff;
+  border-radius: 40%;
+  background-color: white;
 }
 
 .row-content {
@@ -56,12 +64,11 @@ body {
   margin-bottom: 10px;
   padding-left: 50px;
   padding-right: 50px;
+  /* align-items: center; */
 }
 
 .label {
   min-width: 140px;
-  font-family: Roboto;
-  text-align: left;
 }
 
 label {
@@ -152,7 +159,7 @@ select {
 #error-output {
   text-align: left;
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 16px;
   font-style: italic;
   color: red !important;
 }
