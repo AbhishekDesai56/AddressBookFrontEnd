@@ -7,6 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input";
 import Password from "../../Components/Password";
+import NavBar from "../../Components/NavBar";
+import { ErrorBoundary } from "../../Helpers/ErrorBoundary";
 const Login = () => {
   const history = useHistory();
   const initialValues = {
@@ -42,44 +44,47 @@ const Login = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <div class="form-content">
-        <Form className="form">
-          <div className="form-head">
-            <div className="head-title">
-              <span>SignUp Pages</span>
+      <ErrorBoundary>
+        <NavBar />
+        <div class="form-content">
+          <Form className="form">
+            <div className="form-head">
+              <div className="head-title">
+                <span>SignUp Pages</span>
+              </div>
+              <div className="cancel-icon"></div>
             </div>
-            <div className="cancel-icon"></div>
-          </div>
-          <div className="row-content">
-            <Input
-              label="Email"
-              name="email"
-              placeholder="Your Email"
-              className="input"
-            />
-          </div>
-          <div className="row-content">
-            <Password
-              label="Password"
-              name="password"
-              placeholder="Your Password"
-              className="input"
-            />
-          </div>
-          <div className="button-content">
-            <div className="submit-reset">
-              <button
-                id="submitButton"
-                type="submit"
-                className="button submitButton"
-              >
-                Submit
-              </button>
+            <div className="row-content">
+              <Input
+                label="Email"
+                name="email"
+                placeholder="Your Email"
+                className="input"
+              />
             </div>
-          </div>
-          <ToastContainer />
-        </Form>
-      </div>
+            <div className="row-content">
+              <Password
+                label="Password"
+                name="password"
+                placeholder="Your Password"
+                className="input"
+              />
+            </div>
+            <div className="button-content">
+              <div className="submit-reset">
+                <button
+                  id="submitButton"
+                  type="submit"
+                  className="button submitButton"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+            <ToastContainer />
+          </Form>
+        </div>
+      </ErrorBoundary>
     </Formik>
   );
 };
