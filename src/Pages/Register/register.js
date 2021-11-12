@@ -9,13 +9,13 @@ const register = (props) => {
     props;
 
   return (
-    <form class="form" onSubmit={handleSubmit}>
-      <div class="form-head">
-        <div class="head-title">
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="form-head">
+        <div className="head-title">
           <span>Register Form</span>
         </div>
       </div>
-      <div class="row-content">
+      <div className="row-content">
         <Input
           control="input"
           type="text"
@@ -32,7 +32,7 @@ const register = (props) => {
           <div id="error-output">{errors.firstName}</div>
         )}
       </div>
-      <div class="row-content">
+      <div className="row-content">
         <Input
           control="input"
           type="text"
@@ -49,7 +49,7 @@ const register = (props) => {
           <div id="error-output">{errors.lastName}</div>
         )}
       </div>
-      <div class="row-content">
+      <div className="row-content">
         <Input
           type="email"
           label="Email"
@@ -65,7 +65,7 @@ const register = (props) => {
           <div id="error-output">{errors.email}</div>
         )}
       </div>
-      <div class="row-content">
+      <div className="row-content">
         <Input
           type="password"
           label="Password"
@@ -81,9 +81,13 @@ const register = (props) => {
           <div id="error-output">{errors.password}</div>
         )}
       </div>
-      <div class="button-content">
-        <div class="submit">
-          <button id="submitbutton" type="submit" class="button submitButton">
+      <div className="button-content">
+        <div className="submit">
+          <button
+            id="submitbutton"
+            type="submit"
+            className="button submitButton"
+          >
             Submit
           </button>
         </div>

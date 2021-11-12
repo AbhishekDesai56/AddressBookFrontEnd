@@ -109,7 +109,7 @@ const AddressForm = ({ match }) => {
       onSubmit={onSubmit}
       enableReinitialize
     >
-      <div class="form-content">
+      <div className="form-content">
         <Form className="form">
           <div className="form-head">
             <div className="head-title">

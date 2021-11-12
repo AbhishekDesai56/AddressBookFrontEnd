@@ -31,8 +31,8 @@ const AddressBookList = () => {
       });
   };
   return (
-    <div class="table-main">
-      <table id="table-display" class="table">
+    <div className="table-main">
+      <table id="table-display" className="table">
         <th>Fullname</th>
         <th>Address</th>
         <th>Phone Number</th>
