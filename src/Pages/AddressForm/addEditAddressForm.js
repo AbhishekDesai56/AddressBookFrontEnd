@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input";
 import Textarea from "../../Components/TextArea";
 import Select from "../../Components/Select";
-import "./addressForm.scss";
+import "./addEditAddressForm.scss";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 
 const AddressForm = ({ match }) => {
