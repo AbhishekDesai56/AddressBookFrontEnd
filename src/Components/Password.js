@@ -4,7 +4,7 @@ const Password = (props) => {
   const { label, name, placeholder, ...rest } = props;
   return (
     <>
-      <label htmlFor={name} class="label text">
+      <label htmlFor={name} className="label text">
         {label}
       </label>
       <Field type="password" name={name} placeholder={placeholder} {...rest} />

@@ -1,12 +1,12 @@
 import React from "react";
-import "../Pages/AddressForm/addressForm.scss";
+import "../Pages/AddressForm/addEditAddressForm.scss";
 import { ErrorMessage } from "formik";
 
 const Select = (props) => {
   const { label, name, options, ...rest } = props;
   return (
     <>
-      <label for={name} class="label text">
+      <label for={name} className="label text">
         {label}
       </label>
       <select id={name} name={name} {...rest}>
