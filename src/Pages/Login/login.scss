@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-.form-content {
+.login-form-content {
   min-height: calc(100% - 80px);
   background-color: #f7f7f7;
   display: flex;
@@ -9,18 +9,18 @@
   border: 0px solid;
 }
 
-.form {
+.login-form {
   width: 40%;
-  padding: 44px 68px;
+  padding: 11px 68px;
   background: #ffffff;
   border: 1px solid #f5f5f5;
   opacity: 1;
 }
 
-.form-head {
+.login-form-head {
   display: flex;
   flex-direction: column;
-  padding: 45px 68px;
+  padding: 11px 68px;
   font: normal normal bold 24px/37px Roboto;
   letter-spacing: 0px;
   background: #008cff 0% 0% no-repeat padding-box;
@@ -31,25 +31,25 @@
   padding-bottom: 10px;
 }
 
-.form-head {
+.login-form-head {
   justify-content: flex-start;
 }
 
-.head-title {
+.login-head-title {
   flex: 0 1 auto;
   text-align: center;
-  position: absolute;
+  //position: absolute;
   left: 40%;
 }
 
-.cancel-icon {
+.login-cancel-icon {
   margin-left: auto;
   align-items: center;
   border-radius: 40%;
   background-color: white;
 }
 
-.row-content {
+.login-row-content {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -58,23 +58,26 @@
   /* align-items: center; */
 }
 
+// .label {
+//   min-width: 140px;
+// }
+
 .label {
   min-width: 140px;
-}
-
-label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
 
 .text {
+  // margin-left: 10px;
+  text-align: left;
   font-size: 16px;
   color: #42515f;
   opacity: 1;
   font-family: Roboto;
 }
 
-.input {
+.login-input {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -95,7 +98,7 @@ select {
   resize: horizontal;
 }
 
-.select-content {
+.login-select-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -108,7 +111,7 @@ select {
   border-radius: 3px;
 }
 
-.submit-reset {
+.login-submit-reset {
   width: 100%;
   display: flex;
   flex-grow: 1;
@@ -117,7 +120,7 @@ select {
   margin-bottom: 20px;
 }
 
-.button-content {
+.login-button-content {
   display: flex;
   margin-bottom: 10px;
   justify-content: space-between;
@@ -125,12 +128,11 @@ select {
   padding-right: 60px;
 }
 
-.submitButton,
-.resetButton {
+.login-submitButton {
   margin: 10px;
 }
 
-.button {
+.login-button {
   font-size: 20px;
   font-family: Roboto;
   letter-spacing: 0px;
@@ -145,6 +147,10 @@ select {
   cursor: pointer;
   border-radius: 4px;
   background-color: #ccc2c2;
+}
+
+button:hover {
+  background-color: green;
 }
 
 #error-output {

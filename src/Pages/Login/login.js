@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import AddressBookService from "../../Services/AddressBookService";
@@ -9,8 +9,11 @@ import Input from "../../Components/Input";
 import Password from "../../Components/Password";
 import NavBar from "../../Components/NavBar";
 import { ErrorBoundary } from "../../Helpers/ErrorBoundary";
+import "./login.scss";
 const Login = () => {
   const history = useHistory();
+  const [disable, setDisable] = useState(false);
+
   const initialValues = {
     email: "",
     password: "",
@@ -28,6 +31,7 @@ const Login = () => {
     };
     AddressBookService.login(loginData)
       .then((response) => {
+        setDisable(true);
         sessionStorage.setItem("token", response.data.token);
         setTimeout(() => {
           history.push("/dashboard");
@@ -35,6 +39,7 @@ const Login = () => {
         toast.success(response.data.message);
       })
       .catch(() => {
+        setDisable(false);
         toast.error("Invalid Credintials");
       });
   };
@@ -46,36 +51,37 @@ const Login = () => {
     >
       <ErrorBoundary>
         <NavBar />
-        <div class="form-content">
-          <Form className="form">
-            <div className="form-head">
-              <div className="head-title">
-                <span>SignUp Pages</span>
+        <div className="login-form-content">
+          <Form className="login-form">
+            <div className="login-form-head">
+              <div className="login-head-title">
+                <span>Sign in</span>
               </div>
-              <div className="cancel-icon"></div>
+              <div className="login-cancel-icon"></div>
             </div>
-            <div className="row-content">
+            <div className="login-row-content">
               <Input
                 label="Email"
                 name="email"
                 placeholder="Your Email"
-                className="input"
+                className="login-input"
               />
             </div>
-            <div className="row-content">
+            <div className="login-row-content">
               <Password
                 label="Password"
                 name="password"
                 placeholder="Your Password"
-                className="input"
+                className="login-input"
               />
             </div>
-            <div className="button-content">
-              <div className="submit-reset">
+            <div className="login-button-content">
+              <div className="login-submit-reset">
                 <button
                   id="submitButton"
                   type="submit"
-                  className="button submitButton"
+                  className="login-button submitButton"
+                  disabled={disable}
                 >
                   Submit
                 </button>
