@@ -9,20 +9,20 @@ const register = (props) => {
     props;
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <div className="form-head">
-        <div className="head-title">
+    <form className="register-form" onSubmit={handleSubmit}>
+      <div className="register-form-head">
+        <div className="register-head-title">
           <span>Register Form</span>
         </div>
       </div>
-      <div className="row-content">
+      <div className="register-row-content">
         <Input
           control="input"
           type="text"
           label="First Name"
           name="firstName"
           placeholder="Your First Name.."
-          className="input"
+          className="register-input"
           id="firstName"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -32,14 +32,14 @@ const register = (props) => {
           <div id="error-output">{errors.firstName}</div>
         )}
       </div>
-      <div className="row-content">
+      <div className="register-row-content">
         <Input
           control="input"
           type="text"
           label="Last Name"
           name="lastName"
           placeholder="Your Last Name.."
-          className="input"
+          className="register-input"
           id="lastName"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -49,13 +49,13 @@ const register = (props) => {
           <div id="error-output">{errors.lastName}</div>
         )}
       </div>
-      <div className="row-content">
+      <div className="register-row-content">
         <Input
           type="email"
           label="Email"
           name="email"
           placeholder="Enter your Email"
-          className="input"
+          className="register-input"
           id="email"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -65,13 +65,13 @@ const register = (props) => {
           <div id="error-output">{errors.email}</div>
         )}
       </div>
-      <div className="row-content">
+      <div className="register-row-content">
         <Input
           type="password"
           label="Password"
           name="password"
           placeholder="Enter your password"
-          className="input"
+          className="register-input"
           id="password"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -81,12 +81,12 @@ const register = (props) => {
           <div id="error-output">{errors.password}</div>
         )}
       </div>
-      <div className="button-content">
-        <div className="submit">
+      <div className="register-button-content">
+        <div className="register-submit">
           <button
             id="submitbutton"
             type="submit"
-            className="button submitButton"
+            className="register-button submitButton"
           >
             Submit
           </button>

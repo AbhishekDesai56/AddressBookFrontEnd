@@ -109,50 +109,50 @@ const AddressForm = ({ match }) => {
       onSubmit={onSubmit}
       enableReinitialize
     >
-      <div className="form-content">
-        <Form className="form">
-          <div className="form-head">
-            <div className="head-title">
+      <div className="address-form-content">
+        <Form className="address-form">
+          <div className="address-form-head">
+            <div className="address-head-title">
               <span>Person Address Form</span>
             </div>
-            <div className="cancel-icon">
+            <div className="address-cancel-icon">
               <a href="/dashboard">
                 <CloseSharpIcon />
               </a>
             </div>
           </div>
-          <div className="row-content">
+          <div className="address-row-content">
             <Input
               label="First Name"
               name="firstName"
               placeholder="Your First Name"
-              className="input"
+              className="address-input"
               onChange={onValueChange}
               value={users.firstName}
             />
           </div>
-          <div className="row-content">
+          <div className="address-row-content">
             <Input
               label="Last Name"
               name="lastName"
               placeholder="Your Last Name"
-              className="input"
+              className="address-input"
               onChange={onValueChange}
               value={users.lastName}
             />
           </div>
-          <div className="row-content">
+          <div className="address-row-content">
             <Textarea
               label="Address"
               name="address"
               placeholder="Address"
-              className="input"
+              className="address-input"
               id="address"
               onChange={onValueChange}
               value={users.address}
             />
           </div>
-          <div className="select-content">
+          <div className="address-select-content">
             <div>
               <Select
                 label="City"
@@ -176,32 +176,32 @@ const AddressForm = ({ match }) => {
             <div></div>
           </div>
 
-          <div className="row-content">
+          <div className="address-row-content">
             <Input
               control="input"
               type="text"
               label="Phone Number"
               name="phoneNumber"
               placeholder="Phone Number"
-              className="input"
+              className="address-input"
               id="phoneNumber"
               onChange={onValueChange}
               value={users.phoneNumber}
             />
           </div>
-          <div className="button-content">
-            <div className="submit-reset">
+          <div className="address-button-content">
+            <div className="address-submit-reset">
               <button
                 id="submitButton"
                 type="submit"
-                className="button submitButton"
+                className="address-button submitButton"
               >
                 Add
               </button>
               <button
                 id="resetButton"
                 type="reset"
-                className="button resetButton"
+                className="address-button resetButton"
               >
                 Reset
               </button>
