@@ -8,14 +8,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input";
 import Textarea from "../../Components/TextArea";
 import Select from "../../Components/Select";
-import "./addEditAddressForm.scss";
-import CloseSharpIcon from "@mui/icons-material/CloseSharp";
+import NavBar from "../../Components/NavBar";
 
 const AddressForm = ({ match }) => {
   const history = useHistory();
   const { id } = match.params;
   const isAddMode = !id;
   const [users, setAddress] = useState("");
+  const [disable, setDisable] = useState(false);
+
   useEffect(() => {
     if (!isAddMode) {
       AddressBookService.getAddressBookById(id).then((user) => {
@@ -47,6 +48,7 @@ const AddressForm = ({ match }) => {
     pinCode: users.pinCode,
     phoneNumber: users.phoneNumber,
   };
+
   const validationSchema = Yup.object().shape({
     firstName: Yup.string()
       .min(2, "Too Short!")
@@ -80,23 +82,27 @@ const AddressForm = ({ match }) => {
     if (isAddMode) {
       AddressBookService.createAddressBookData(details)
         .then((response) => {
+          setDisable(true);
           setTimeout(() => {
             history.push("/dashboard");
           }, 2000);
           toast.success(response.data.message);
         })
         .catch((error) => {
+          setDisable(false);
           toast.error(error);
         });
     } else {
       AddressBookService.updateAddressBookId(id, details)
         .then((response) => {
+          setDisable(true);
           setTimeout(() => {
             history.push("/dashboard");
           }, 2000);
           toast.success(response.data.message);
         })
         .catch((error) => {
+          setDisable(false);
           toast.error(error);
         });
     }
@@ -109,7 +115,7 @@ const AddressForm = ({ match }) => {
       onSubmit={onSubmit}
       enableReinitialize
     >
-      <div className="address-form-content">
+      <div className="address-form-container">
         <Form className="address-form">
           <div className="address-form-head">
             <div className="address-head-title">
@@ -117,7 +123,7 @@ const AddressForm = ({ match }) => {
             </div>
             <div className="address-cancel-icon">
               <a href="/dashboard">
-                <CloseSharpIcon />
+                <button class="circle cross"></button>
               </a>
             </div>
           </div>
@@ -145,7 +151,7 @@ const AddressForm = ({ match }) => {
             <Textarea
               label="Address"
               name="address"
-              placeholder="Address"
+              placeholder="Your Address"
               className="address-input"
               id="address"
               onChange={onValueChange}
@@ -192,16 +198,21 @@ const AddressForm = ({ match }) => {
           <div className="address-button-content">
             <div className="address-submit-reset">
               <button
-                id="submitButton"
+                id="submit-button"
                 type="submit"
-                className="address-button submitButton"
+                className="address-button submit-button"
+                disabled={disable}
               >
-                Add
+                {isAddMode ? "Add" : "Update"}
               </button>
               <button
-                id="resetButton"
+                id="reset-button"
                 type="reset"
                 className="address-button resetButton"
+                disabled={disable}
+                onClick={() => {
+                  window.location.reload();
+                }}
               >
                 Reset
               </button>
@@ -214,4 +225,4 @@ const AddressForm = ({ match }) => {
   );
 };
 
-export default AddressForm;
+export default NavBar(AddressForm);
