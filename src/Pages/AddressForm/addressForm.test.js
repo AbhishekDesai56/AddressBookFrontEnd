@@ -1,13 +1,13 @@
 import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import MyEnhancedAddressForm from "./addressForm";
+import AddressForm from "./addEditAddressForm";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("MyEnhancedAddressForm", () => {
+describe("AddressForm", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<MyEnhancedAddressForm />);
+    wrapper = mount(<AddressForm />);
   });
 
   it("shows my default text", () => {
@@ -52,15 +52,15 @@ describe("MyEnhancedAddressForm", () => {
 
 describe("The components are rendered", () => {
   it("renders Login component without crashing", () => {
-    shallow(<MyEnhancedAddressForm />);
+    shallow(<AddressForm />);
   });
   it("renders title without crashing", () => {
-    const wrapper = mount(<MyEnhancedAddressForm />);
+    const wrapper = mount(<AddressForm />);
     const header = <span>Person Address Form</span>;
     expect(wrapper.contains(header)).toBe(true);
   });
   it("renders form inputs", () => {
-    const wrapper = mount(<MyEnhancedAddressForm />);
+    const wrapper = mount(<AddressForm />);
     expect(wrapper.find('input[id="firstName"]')).toHaveLength(1);
     expect(wrapper.find('input[id="lastName"]')).toHaveLength(1);
     expect(wrapper.find('textarea[id="address"]')).toHaveLength(1);
@@ -69,7 +69,7 @@ describe("The components are rendered", () => {
     expect(wrapper.find('input[id="phoneNumber"]')).toHaveLength(1);
   });
   it("renders submit button without crashing", () => {
-    const wrapper = mount(<MyEnhancedAddressForm />);
+    const wrapper = mount(<AddressForm />);
     const label = wrapper.find("#submitButton").text();
     expect(label).toBe("Add");
     const label2 = wrapper.find("#resetButton").text();
@@ -81,7 +81,7 @@ describe("The events are working", () => {
   it("The form is submitted when the click event is fired by simulated click on the submit button", () => {
     const mockCallBack = jest.fn();
 
-    const wrapper = mount(<MyEnhancedAddressForm onSubmit={mockCallBack()} />);
+    const wrapper = mount(<AddressForm onSubmit={mockCallBack()} />);
 
     wrapper.find("#submitButton").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
@@ -93,7 +93,7 @@ describe("The events are working", () => {
 
 describe("Snapshot", () => {
   it("matches App the snapshot", () => {
-    const wrapper = mount(<MyEnhancedAddressForm />);
+    const wrapper = mount(<AddressForm />);
     expect(wrapper).toMatchSnapshot();
   });
 });
