@@ -1,9 +1,10 @@
 import React from "react";
 import "./dashboard.scss";
 import AddressBookList from "../../Components/AddressBookList";
+import NavBar from "../../Components/NavBar";
 const Dashboard = (props) => {
   return (
-    <div className="main-content">
+    <div className="main-content-container">
       <div className="header-content">
         <div className="person-detail-text">Person Details</div>
         <a href="/details" className="add-button">
@@ -16,4 +17,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default NavBar(Dashboard);
