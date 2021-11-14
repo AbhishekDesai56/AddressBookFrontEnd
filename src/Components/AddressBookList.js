@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddressBookService from "../Services/AddressBookService";
-import "./AddressBookList.scss";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const AddressBookList = () => {
