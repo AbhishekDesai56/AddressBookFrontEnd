@@ -3,6 +3,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddressBookService from "../Services/AddressBookService";
 import "./AddressBookList.scss";
+import Tooltip from "@material-ui/core/Tooltip";
+
 const AddressBookList = () => {
   const [addressList, setAddressList] = useState([]);
 
@@ -13,7 +15,6 @@ const AddressBookList = () => {
   const getAllListOfAddressBook = async () => {
     await AddressBookService.getAllAddressBookData()
       .then((response) => {
-        console.log(response.data.data);
         setAddressList(response.data.data);
       })
       .catch((error) => {
@@ -47,19 +48,21 @@ const AddressBookList = () => {
             <td>{address.phoneNumber}</td>
             <td>{address.city}</td>
             <td>{address.pinCode}</td>
-            <td className="addressDetails">{address.address}</td>
+            <Tooltip title={address.address}>
+              <td className="addressDetails">{address.address}</td>
+            </Tooltip>
             <td>
-              <a href={`/details/${address._id}`}>
+              <a className="icons" href={`/details/${address._id}`}>
                 <EditIcon />
               </a>
-              <button
-                id="deleteButton"
+              <span
+                className="icons"
                 onClick={() => {
                   handleDelete(address._id);
                 }}
               >
-                <DeleteIcon color="secondary" />
-              </button>
+                <DeleteIcon className="delete-icon" />
+              </span>
             </td>
           </tr>
         ))}
