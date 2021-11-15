@@ -48,7 +48,7 @@
     margin-left: auto;
     align-items: center;
     border-radius: 40%;
-    background-color: white;
+    background-color: $white-color;
   }
 
   .login-row-content {
@@ -90,7 +90,7 @@
     border-radius: 4px;
     font: normal normal normal 16px Roboto;
     letter-spacing: 0px;
-    color: #42515f;
+    color: $black-blue-color;
     background-color: transparent;
     resize: horizontal;
   }
@@ -101,9 +101,9 @@
     justify-content: space-between;
     padding-left: 60px;
     padding-right: 60px;
-    background: #ffffff 0% 0% no-repeat padding-box;
+    background: $white-color 0% 0% no-repeat padding-box;
     letter-spacing: 0px;
-    color: #42515f;
+    color: $black-blue-color;
     background-color: transparent;
     border-radius: 3px;
   }
@@ -133,7 +133,7 @@
     font-size: 20px;
     font-family: Roboto;
     letter-spacing: 0px;
-    color: #42515f;
+    color: $black-blue-color;
     opacity: 1;
     background: transparent;
     border: none;
