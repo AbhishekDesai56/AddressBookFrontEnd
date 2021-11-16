@@ -3,9 +3,15 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddressBookService from "../Services/AddressBookService";
 import Tooltip from "@material-ui/core/Tooltip";
+import AlertDialog from "./AlertDialog";
 
 const AddressBookList = () => {
   const [addressList, setAddressList] = useState([]);
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: "",
+    subTitle: "",
+  });
 
   useEffect(() => {
     getAllListOfAddressBook();
@@ -22,6 +28,10 @@ const AddressBookList = () => {
   };
 
   const handleDelete = (id) => {
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen: false,
+    });
     AddressBookService.deleteAddressBookId(id)
       .then((response) => {
         window.location.reload();
@@ -57,7 +67,14 @@ const AddressBookList = () => {
               <span
                 className="icons"
                 onClick={() => {
-                  handleDelete(address._id);
+                  setConfirmDialog({
+                    isOpen: true,
+                    title: "Are you sure to delete this record?",
+                    subTitle: "You can't undo this operation",
+                    onConfirm: () => {
+                      handleDelete(address._id);
+                    },
+                  });
                 }}
               >
                 <DeleteIcon className="delete-icon" />
@@ -66,6 +83,10 @@ const AddressBookList = () => {
           </tr>
         ))}
       </table>
+      <AlertDialog
+        confirmDialog={confirmDialog}
+        setConfirmDialog={setConfirmDialog}
+      />
     </div>
   );
 };
