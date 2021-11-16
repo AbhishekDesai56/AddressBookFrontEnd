@@ -159,7 +159,7 @@ const AddressForm = ({ match }) => {
             />
           </div>
           <div className="address-select-content">
-            <div>
+            <div className="select-input">
               <Select
                 label="City"
                 name="city"
@@ -169,7 +169,7 @@ const AddressForm = ({ match }) => {
                 value={users.city}
               />
             </div>
-            <div>
+            <div className="select-input">
               <Select
                 label="PinCode"
                 name="pinCode"
