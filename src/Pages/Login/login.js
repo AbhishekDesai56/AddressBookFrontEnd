@@ -53,7 +53,7 @@ const Login = () => {
         <Form className="login-form">
           <div className="login-form-head">
             <div className="login-head-title">
-              <span>Sign in</span>
+              <span id="header">Sign in</span>
             </div>
             <div className="login-cancel-icon"></div>
           </div>
@@ -63,6 +63,7 @@ const Login = () => {
               name="email"
               placeholder="Your Email"
               className="login-input"
+              id="email"
             />
           </div>
           <div className="login-row-content">
@@ -71,6 +72,7 @@ const Login = () => {
               name="password"
               placeholder="Your Password"
               className="login-input"
+              id="password"
             />
           </div>
           <div className="login-row-content">
@@ -81,9 +83,9 @@ const Login = () => {
           <div className="login-button-content">
             <div className="login-submit-reset">
               <button
-                id="submitButton"
+                id="submitbutton"
                 type="submit"
-                className="login-button submitButton"
+                className="login-button submit-button"
                 disabled={disable}
               >
                 Submit

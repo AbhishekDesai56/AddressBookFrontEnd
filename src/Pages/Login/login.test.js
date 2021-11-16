@@ -1,17 +1,17 @@
 import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import MyEnhancedLogin from "./login";
+import Login from "./login";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("MyEnhancedLogin", () => {
+describe("Login", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<MyEnhancedLogin />);
+    wrapper = mount(<Login />);
   });
 
   it("shows my default text", () => {
-    expect(wrapper.find("span").text()).toEqual("Login Form");
+    expect(wrapper.find("#header").text()).toEqual("Sign in");
   });
 
   it("fill the form with values", () => {
@@ -19,7 +19,7 @@ describe("MyEnhancedLogin", () => {
       email: "leongaban@gmail.com",
       password: "testpass",
     };
-    expect(wrapper.find("#email").length).toBe(2);
+    expect(wrapper.find("#email").length).toBe(3);
 
     const emailInput = wrapper.find("#email");
     emailInput.value = credentials.email;
@@ -33,25 +33,25 @@ describe("MyEnhancedLogin", () => {
 
 describe("The components are rendered", () => {
   it("renders Login component without crashing", () => {
-    shallow(<MyEnhancedLogin />);
+    shallow(<Login />);
   });
 
   it("renders title without crashing", () => {
-    const wrapper = mount(<MyEnhancedLogin />);
+    const wrapper = mount(<Login />);
 
-    const header = <span>Login Form</span>;
+    const header = <span id="header">Sign in</span>;
     expect(wrapper.contains(header)).toBe(true);
   });
 
   it("renders form inputs", () => {
-    const wrapper = mount(<MyEnhancedLogin />);
+    const wrapper = mount(<Login />);
 
     expect(wrapper.find('input[id="email"]')).toHaveLength(1);
     expect(wrapper.find('input[id="password"]')).toHaveLength(1);
   });
 
   it("renders submit button without crashing", () => {
-    const wrapper = mount(<MyEnhancedLogin />);
+    const wrapper = mount(<Login />);
 
     const label = wrapper.find("#submitbutton").text();
     expect(label).toBe("Submit");
@@ -62,7 +62,7 @@ describe("The events are working", () => {
   it("The form is submitted when the click event is fired by simulated click on the submit button", () => {
     const mockCallBack = jest.fn();
 
-    const wrapper = mount(<MyEnhancedLogin onSubmit={mockCallBack()} />);
+    const wrapper = mount(<Login onSubmit={mockCallBack()} />);
 
     wrapper.find("#submitbutton").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
@@ -71,7 +71,7 @@ describe("The events are working", () => {
 
 describe("Snapshot", () => {
   it("matches App the snapshot", () => {
-    const wrapper = mount(<MyEnhancedLogin />);
+    const wrapper = mount(<Login />);
     expect(wrapper).toMatchSnapshot();
   });
 });
