@@ -83,6 +83,7 @@ const AddressBookList = () => {
           </tr>
         ))}
       </table>
+      {addressList.length === 0 ? <h3>No Record Found</h3> : ""}
       <AlertDialog
         confirmDialog={confirmDialog}
         setConfirmDialog={setConfirmDialog}
