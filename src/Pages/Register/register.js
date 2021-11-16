@@ -67,7 +67,7 @@ const Register = (props) => {
         <Form className="register-form">
           <div className="register-form-head">
             <div className="register-head-title">
-              <span>Register Form</span>
+              <span id="header">Register Form</span>
             </div>
           </div>
           <div className="register-row-content">
@@ -115,9 +115,9 @@ const Register = (props) => {
           <div className="register-button-content">
             <div className="register-submit">
               <button
-                id="submitButton"
+                id="submit-button"
                 type="submit"
-                className="register-button submitButton"
+                className="register-button submit-button"
                 disabled={disable}
               >
                 Submit

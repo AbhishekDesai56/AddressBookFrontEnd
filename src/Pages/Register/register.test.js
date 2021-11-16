@@ -1,17 +1,17 @@
 import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import MyEnhancedRegister from "./register";
+import Register from "./register";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("MyEnhancedRegister", () => {
+describe("Register", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<MyEnhancedRegister />);
+    wrapper = mount(<Register />);
   });
 
   it("shows my default text", () => {
-    expect(wrapper.find("span").text()).toEqual("Register Form");
+    expect(wrapper.find("#header").text()).toEqual("Register Form");
   });
 
   it("fill the form with values", () => {
@@ -21,7 +21,7 @@ describe("MyEnhancedRegister", () => {
       email: "leongaban@gmail.com",
       password: "testpass",
     };
-    expect(wrapper.find("#email").length).toBe(2);
+    expect(wrapper.find("#email").length).toBe(3);
 
     const firstNameInput = wrapper.find("#firstName");
     firstNameInput.value = registerDetails.firstName;
@@ -43,18 +43,18 @@ describe("MyEnhancedRegister", () => {
 
 describe("The components are rendered", () => {
   it("renders Login component without crashing", () => {
-    shallow(<MyEnhancedRegister />);
+    shallow(<Register />);
   });
 
   it("renders title without crashing", () => {
-    const wrapper = mount(<MyEnhancedRegister />);
+    const wrapper = mount(<Register />);
 
-    const header = <span>Register Form</span>;
+    const header = <span id="header">Register Form</span>;
     expect(wrapper.contains(header)).toBe(true);
   });
 
   it("renders form inputs", () => {
-    const wrapper = mount(<MyEnhancedRegister />);
+    const wrapper = mount(<Register />);
 
     expect(wrapper.find('input[id="firstName"]')).toHaveLength(1);
     expect(wrapper.find('input[id="lastName"]')).toHaveLength(1);
@@ -63,9 +63,9 @@ describe("The components are rendered", () => {
   });
 
   it("renders submit button without crashing", () => {
-    const wrapper = mount(<MyEnhancedRegister />);
+    const wrapper = mount(<Register />);
 
-    const label = wrapper.find("#submitbutton").text();
+    const label = wrapper.find("#submit-button").text();
     expect(label).toBe("Submit");
   });
 });
@@ -74,16 +74,16 @@ describe("The events are working", () => {
   it("The form is submitted when the click event is fired by simulated click on the submit button", () => {
     const mockCallBack = jest.fn();
 
-    const wrapper = mount(<MyEnhancedRegister onSubmit={mockCallBack()} />);
+    const wrapper = mount(<Register onSubmit={mockCallBack()} />);
 
-    wrapper.find("#submitbutton").simulate("click");
+    wrapper.find("#submit-button").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
   });
 });
 
 describe("Snapshot", () => {
   it("matches App the snapshot", () => {
-    const wrapper = mount(<MyEnhancedRegister />);
+    const wrapper = mount(<Register />);
     expect(wrapper).toMatchSnapshot();
   });
 });
