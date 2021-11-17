@@ -10,10 +10,12 @@
   border: 0px solid;
 
   .address-form {
-    width: 65%;
+    width: 600px;
+    padding: 10px;
     background: #ffffff;
     border: 1px solid #f5f5f5;
     opacity: 1;
+    border-radius: 10px;
   }
 
   .address-form-head {
@@ -70,7 +72,7 @@
   }
 
   .address-input {
-    width: 100%;
+    width: 500px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -197,14 +199,5 @@
   }
   .circle.cross:after {
     transform: rotateZ(-45deg);
-  }
-
-  @media screen and (max-width: 600px) {
-    .address-form-container,
-    .address-row-content,
-    .select-input {
-      width: 100%;
-      margin-top: 0;
-    }
   }
 }
