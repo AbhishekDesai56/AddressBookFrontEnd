@@ -119,7 +119,7 @@ const AddressForm = ({ match }) => {
         <Form className="address-form">
           <div className="address-form-head">
             <div className="address-head-title">
-              <span>Person Address Form</span>
+              <span id="header">Person Address Form</span>
             </div>
             <div className="address-cancel-icon">
               <a href="/dashboard">
@@ -135,6 +135,7 @@ const AddressForm = ({ match }) => {
               className="address-input"
               onChange={onValueChange}
               value={users.firstName}
+              id="firstName"
             />
           </div>
           <div className="address-row-content">
@@ -145,6 +146,7 @@ const AddressForm = ({ match }) => {
               className="address-input"
               onChange={onValueChange}
               value={users.lastName}
+              id="lastName"
             />
           </div>
           <div className="address-row-content">
@@ -208,7 +210,7 @@ const AddressForm = ({ match }) => {
               <button
                 id="reset-button"
                 type="reset"
-                className="address-button resetButton"
+                className="address-button reset-button"
                 disabled={disable}
                 onClick={() => {
                   window.location.reload();

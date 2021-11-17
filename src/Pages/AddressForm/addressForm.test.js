@@ -3,15 +3,16 @@ import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import AddressForm from "./addEditAddressForm";
 
 Enzyme.configure({ adapter: new Adapter() });
+const match = { params: { id: "foo" } };
 
 describe("AddressForm", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<AddressForm />);
+    wrapper = mount(<AddressForm match={match} />);
   });
 
   it("shows my default text", () => {
-    expect(wrapper.find("span").text()).toEqual("Person Address Form");
+    expect(wrapper.find("#header").text()).toEqual("Person Address Form");
   });
 
   it("fill the form with values", () => {
@@ -52,15 +53,15 @@ describe("AddressForm", () => {
 
 describe("The components are rendered", () => {
   it("renders Login component without crashing", () => {
-    shallow(<AddressForm />);
+    shallow(<AddressForm match={match} />);
   });
   it("renders title without crashing", () => {
-    const wrapper = mount(<AddressForm />);
-    const header = <span>Person Address Form</span>;
+    const wrapper = mount(<AddressForm match={match} />);
+    const header = <span id="header">Person Address Form</span>;
     expect(wrapper.contains(header)).toBe(true);
   });
   it("renders form inputs", () => {
-    const wrapper = mount(<AddressForm />);
+    const wrapper = mount(<AddressForm match={match} />);
     expect(wrapper.find('input[id="firstName"]')).toHaveLength(1);
     expect(wrapper.find('input[id="lastName"]')).toHaveLength(1);
     expect(wrapper.find('textarea[id="address"]')).toHaveLength(1);
@@ -69,10 +70,10 @@ describe("The components are rendered", () => {
     expect(wrapper.find('input[id="phoneNumber"]')).toHaveLength(1);
   });
   it("renders submit button without crashing", () => {
-    const wrapper = mount(<AddressForm />);
-    const label = wrapper.find("#submitButton").text();
-    expect(label).toBe("Add");
-    const label2 = wrapper.find("#resetButton").text();
+    const wrapper = mount(<AddressForm match={match} />);
+    const label = wrapper.find("#submit-button").text();
+    expect(label).toBe("Update");
+    const label2 = wrapper.find("#reset-button").text();
     expect(label2).toBe("Reset");
   });
 });
@@ -81,19 +82,21 @@ describe("The events are working", () => {
   it("The form is submitted when the click event is fired by simulated click on the submit button", () => {
     const mockCallBack = jest.fn();
 
-    const wrapper = mount(<AddressForm onSubmit={mockCallBack()} />);
+    const wrapper = mount(
+      <AddressForm match={match} onSubmit={mockCallBack()} />
+    );
 
-    wrapper.find("#submitButton").simulate("click");
+    wrapper.find("#submit-button").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
 
-    wrapper.find("#resetButton").simulate("click");
+    wrapper.find("#reset-button").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
   });
 });
 
 describe("Snapshot", () => {
   it("matches App the snapshot", () => {
-    const wrapper = mount(<AddressForm />);
+    const wrapper = mount(<AddressForm match={match} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
