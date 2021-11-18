@@ -23,7 +23,7 @@ const AddressBookList = () => {
         setAddressList(response.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -37,7 +37,7 @@ const AddressBookList = () => {
         window.location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
   return (

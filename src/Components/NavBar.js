@@ -42,12 +42,10 @@ const NavBar = (WrappedComponent) => {
 
   function isShow() {
     if (window.location.href.indexOf("dashboard") > -1) {
-      console.log("true");
       return true;
     } else if (window.location.href.indexOf("details") > -1) {
       return true;
     } else {
-      console.log("false");
       return false;
     }
   }
