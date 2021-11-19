@@ -1,3 +1,4 @@
+@import "../../Styles/variable.scss";
 body {
   margin: 0;
   height: 100%;
@@ -35,7 +36,7 @@ body {
   .add-button {
     font: normal normal normal 22px/29px Roboto;
     letter-spacing: 0px;
-    color: #ffffff;
+    color: $white-color;
     opacity: 1;
     background: #82a70c 0% 0% no-repeat padding-box;
     border: none;
@@ -80,7 +81,7 @@ body {
   }
 
   tr:not(:first-child) {
-    background: #ffffff 0% 0% no-repeat padding-box;
+    background: $white-color 0% 0% no-repeat padding-box;
     border: 1px solid #e3e3e3;
     border-radius: 3px;
   }

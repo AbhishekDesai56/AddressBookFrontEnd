@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-@import "../../Styles/variable.scss";
+@import "../../Styles/variable";
 
 .login-form-container {
   min-height: calc(100% - 80px);
@@ -14,7 +13,7 @@
     width: 400px;
     padding: 10px;
     background: #ffffff;
-    border: 1px solid #f5f5f5;
+    border: 1px solid $light-white-color;
     opacity: 1;
     border-radius: 10px;
   }
