@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.scss";
-import image from "../assets/logo.png";
+import image from "../../assets/logo.png";
 
 const NavBar = (WrappedComponent) => {
   const logout = () => {

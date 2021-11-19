@@ -4,7 +4,7 @@ import Register from "../src/Pages/Register/register";
 import Dashboard from "../src/Pages/Dashboard/dashboard";
 import AddressForm from "./Pages/AddressForm/addEditAddressForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ProtectedRoute } from "../src/Components/ProtectedRoute";
+import { ProtectedRoute } from "../src/Components/Protected Route/ProtectedRoute";
 import { ErrorBoundary } from "../src/Helpers/ErrorBoundary";
 
 const App = () => {

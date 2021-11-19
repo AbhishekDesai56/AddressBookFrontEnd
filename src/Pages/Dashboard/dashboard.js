@@ -1,7 +1,7 @@
 import React from "react";
 import "./dashboard.scss";
-import AddressBookList from "../../Components/AddressBookList";
-import NavBar from "../../Components/NavBar";
+import AddressBookList from "../../Components/AddressBook List/AddressBookList";
+import NavBar from "../../Components/NavBar/NavBar";
 const Dashboard = (props) => {
   return (
     <div className="main-content-container">

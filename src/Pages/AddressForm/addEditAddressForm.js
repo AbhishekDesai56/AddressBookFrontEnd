@@ -5,10 +5,10 @@ import AddressBookService from "../../Services/AddressBookService";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Input from "../../Components/Input";
-import Textarea from "../../Components/TextArea";
-import Select from "../../Components/Select";
-import NavBar from "../../Components/NavBar";
+import Input from "../../Components/Input/Input";
+import Textarea from "../../Components/Input/TextArea";
+import Select from "../../Components/Input/Select";
+import NavBar from "../../Components/NavBar/NavBar";
 
 const AddressForm = ({ match }) => {
   const history = useHistory();

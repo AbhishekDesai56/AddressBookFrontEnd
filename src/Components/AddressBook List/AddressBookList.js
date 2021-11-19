@@ -3,7 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddressBookService from "../../Services/AddressBookService";
 import Tooltip from "@material-ui/core/Tooltip";
-import AlertDialog from "./AlertDialog";
+import AlertDialog from "../Alert Dialog/AlertDialog";
 
 const AddressBookList = () => {
   const [addressList, setAddressList] = useState([]);

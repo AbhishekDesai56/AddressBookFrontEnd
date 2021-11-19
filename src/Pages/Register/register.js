@@ -5,9 +5,9 @@ import AddressBookService from "../../Services/AddressBookService";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Input from "../../Components/Input";
+import Input from "../../Components/Input/Input";
 import "./register.scss";
-import NavBar from "../../Components/NavBar";
+import NavBar from "../../Components/NavBar/NavBar";
 
 const Register = (props) => {
   const history = useHistory();
