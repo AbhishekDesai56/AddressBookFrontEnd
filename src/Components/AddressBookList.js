@@ -27,11 +27,15 @@ const AddressBookList = () => {
       });
   };
 
-  const handleDelete = (id) => {
+  const callSetConfirmDialog = () => {
     setConfirmDialog({
       ...confirmDialog,
       isOpen: false,
     });
+  };
+
+  const handleDelete = (id) => {
+    callSetConfirmDialog();
     AddressBookService.deleteAddressBookId(id)
       .then((response) => {
         window.location.reload();
