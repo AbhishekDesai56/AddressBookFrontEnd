@@ -72,7 +72,6 @@ const Register = (props) => {
           </div>
           <div className="register-row-content">
             <Input
-              control="input"
               type="text"
               label="First Name"
               name="firstName"
@@ -83,7 +82,6 @@ const Register = (props) => {
           </div>
           <div className="register-row-content">
             <Input
-              control="input"
               type="text"
               label="Last Name"
               name="lastName"

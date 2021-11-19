@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input";
-import Password from "../../Components/Password";
 import NavBar from "../../Components/NavBar";
 import "./login.scss";
 
@@ -59,6 +58,7 @@ const Login = () => {
           </div>
           <div className="login-row-content">
             <Input
+              type="email"
               label="Email"
               name="email"
               placeholder="Your Email"
@@ -67,7 +67,8 @@ const Login = () => {
             />
           </div>
           <div className="login-row-content">
-            <Password
+            <Input
+              type="password"
               label="Password"
               name="password"
               placeholder="Your Password"

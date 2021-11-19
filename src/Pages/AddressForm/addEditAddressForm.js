@@ -129,6 +129,7 @@ const AddressForm = ({ match }) => {
           </div>
           <div className="address-row-content">
             <Input
+              type="text"
               label="First Name"
               name="firstName"
               placeholder="Your First Name"
@@ -140,6 +141,7 @@ const AddressForm = ({ match }) => {
           </div>
           <div className="address-row-content">
             <Input
+              type="text"
               label="Last Name"
               name="lastName"
               placeholder="Your Last Name"
@@ -186,7 +188,6 @@ const AddressForm = ({ match }) => {
 
           <div className="address-row-content">
             <Input
-              control="input"
               type="text"
               label="Phone Number"
               name="phoneNumber"
