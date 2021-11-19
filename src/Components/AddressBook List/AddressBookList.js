@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import AddressBookService from "../Services/AddressBookService";
+import AddressBookService from "../../Services/AddressBookService";
 import Tooltip from "@material-ui/core/Tooltip";
 import AlertDialog from "./AlertDialog";
 
