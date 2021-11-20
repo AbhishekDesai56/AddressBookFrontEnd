@@ -9,7 +9,7 @@ import Input from "../../Components/Input/Input";
 import Textarea from "../../Components/Input/TextArea";
 import Select from "../../Components/Input/Select";
 import NavBar from "../../Components/NavBar/NavBar";
-
+import "./addEditAddressForm.scss";
 const AddressForm = ({ match }) => {
   const history = useHistory();
   const { id } = match.params;
