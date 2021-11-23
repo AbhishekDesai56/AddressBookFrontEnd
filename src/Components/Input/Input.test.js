@@ -14,19 +14,6 @@ describe("<Input />", function testsRelyOnTHIS() {
     errorMessage: "Invalid input",
   };
 
-  // it("renders the provided type text", () => {
-  //   const wrapper = shallow(
-  //     <Input
-  //       type={props.type}
-  //       label={props.label}
-  //       name={props.name}
-  //       placeholder={props.placeholder}
-  //     />
-  //   );
-  //   const node = wrapper.find("type").text();
-  //   expect(node).toBe(props.type);
-  // });
-
   it("renders the provided label text", () => {
     const wrapper = shallow(
       <Input
