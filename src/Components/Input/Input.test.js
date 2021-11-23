@@ -1,8 +1,7 @@
 import React from "react";
-import Enzyme, { mount, shallow } from "enzyme";
+import Enzyme, { shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import Input from "./Input";
-import { ErrorMessage } from "formik";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<Input />", function testsRelyOnTHIS() {
