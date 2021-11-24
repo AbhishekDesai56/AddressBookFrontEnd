@@ -10,6 +10,7 @@ import Textarea from "../../Components/Input/TextArea";
 import Select from "../../Components/Input/Select";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./addEditAddressForm.scss";
+
 const AddressForm = ({ match }) => {
   const history = useHistory();
   const { id } = match.params;
@@ -123,7 +124,7 @@ const AddressForm = ({ match }) => {
             </div>
             <div className="address-cancel-icon">
               <a href="/dashboard">
-                <button class="circle cross"></button>
+                <button className="circle cross"></button>
               </a>
             </div>
           </div>
