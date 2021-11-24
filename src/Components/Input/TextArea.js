@@ -7,7 +7,12 @@ const Textarea = (props) => {
       <label for={name} className="label text">
         {label}
       </label>
-      <textarea name={name} placeholder={placeholder} {...rest} />
+      <textarea
+        name={name}
+        placeholder={placeholder}
+        id="id-textarea"
+        {...rest}
+      />
       <span id="error-output">
         <ErrorMessage name={name} />
       </span>
