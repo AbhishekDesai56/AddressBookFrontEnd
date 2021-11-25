@@ -1,6 +1,6 @@
 import React from "react";
 import "./dashboard.scss";
-import AddressBookList from "../../Components/AddressBook List/AddressBookList";
+import AddressBookList from "../../Components/AddressBookList/AddressBookList";
 import NavBar from "../../Components/NavBar/NavBar";
 const Dashboard = (props) => {
   return (

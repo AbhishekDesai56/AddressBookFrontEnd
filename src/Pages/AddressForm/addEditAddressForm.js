@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../../Components/Input/Input";
-import Textarea from "../../Components/Input/TextArea";
-import Select from "../../Components/Input/Select";
+import Textarea from "../../Components/TextArea/TextArea";
+import Select from "../../Components/Select/Select";
 import NavBar from "../../Components/NavBar/NavBar";
 import "./addEditAddressForm.scss";
 
